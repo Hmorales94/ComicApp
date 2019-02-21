@@ -1,0 +1,185 @@
+
+
+
+
+//Crear un componente
+ng generate component
+ng g c components/shared/navbar
+
+//Para modificar los componentes dados de alta en al aplicación, se debe revisar
+app.module.ts
+
+
+//Instalar bibliotecas de terceros
+
+1.
+La forma más rápida de hacerlo es usando el CDN. Se recomienda para aplicaciones desplegadas en internet
+REQUIERE INTERNET
+
+Pegarlo en el index.html
+
+//head
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+//end body
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+2. Descargar la biblioteca  y usar la carpeta de configuración
+
+De preferencia, guardarlo en assets/libs/bootstrap
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+3. Usar npm
+
+// -- save guarda localmente los archivos
+npm install bootstrap --save
+
+
+npm install jquery --save
+
+npm install popper.js --save
+
+
+Modificar el archivo angular.json
+Este configura la aplicación, por lo que debe agregarse a styles y  scripts
+
+"styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+                "node_modules/jquery/dist/jquery.slim.min.js",
+                "node_modules/popper.js/dist/umd/popper.min.js",
+                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
+
+
+Para que los cambios tomen efecto, debe reiniciarse el ng serve
+
+
+---------------------
+
+Rutas
+
+Si no se usa numeral en el enrutamiento, debe tenerse esta etiqueta en el index:
+
+ <base href="/">
+
+
+Crear el archivo de rutas app.routes.ts en la raiz de app
+
+Luego usar el snippet
+ng-router
+
+
+La constante APP_ROUTES es un arreglo de rutas.
+
+Cada una de ellas tiene una ruta y un componente asociado
+Tiene la ruta ** cuando no se encuentre alguna en particular
+
+
+Para que angular detecte el sistema de rutas, se debe dar de alta en app.module.ts
+En la sección de imports, se pega la constante exportada APP_ROUTES
+
+Solo falta indicar donde debe renderizarse el enrutamiento y se hace con router-outlet
+
+Por lo que pegamos lo siguiente en el app.component.ts
+
+<div class="container">
+  <router-outlet></router-outlet>
+
+</div>
+
+
+Si se requiere enviar parámetros a través del #, debe modificarse el export de la clase de rutas
+
+
+export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash:true});
+
+
+
+Para hacer los enlaces a las páginas dadas de alta en el enrutamiento,se utiliza router-link
+
+[routerLink]="['home','paginas','1']"
+Esa ruta equivaldría a home/paginas/1
+
+Para darle un efecto de estilo a los elementos activos, se puede usar
+routerLinkActive="class"
+Y poner la class que se utiilizará cuando esté activo
+
+Esto lo sabe angular buscnado si el elemento padre de routerLink tiene el atributo
+routerLinkActive
+
+La clase block de bootstrap es para mostrar el elemento en todo el espacio disponible
+
+----------
+Servicios
+
+Los servicios se generan como cualquier componente
+y usan el decorador de injectable
+
+Luego de crearse, se dan de alta en el app module
+y después en la sección de providers
+
+El ngOnInit se utiliza cuando un la página ya está renderizada
+y se ejecuta después del constructor
+
+
+------
+
+Interpolacion
+Si se encierra el atributo html en corchetes, entonces angular se hará cargo
+de renderizar la etiqueta.
+
+Para hacer una interpolación fuera de las etiquetas, se usan las llaves {{}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
