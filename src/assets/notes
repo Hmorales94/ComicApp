@@ -138,16 +138,37 @@ de renderizar la etiqueta.
 
 Para hacer una interpolación fuera de las etiquetas, se usan las llaves {{}}
 
+Rutas con parámetros
 
+Para agregar una ruta con un parámetro, se debe modificar el archivo de Rutas
+y usar el prefijo : seguido de la variable, por ejemplo heroe/:id
 
+En el enlacer de routerLink habrá que pones una / antes de la dirección para que tome 
+la diorección desde la raíz de la aplicación
 
+Para agrregar las rutas de manera programática, debe agregarse una función la botón y enviar el parámetro
+al componente del html, para luego importar el router e implementar la función
 
+verHeroe(index: number) {
+    this._router.navigate(['/heroe', index]);
+  }
 
+Otra manera es obtener el parámetro desde la URL usando el ActivatedRoute
+Primero se importa el módulo, 
+import { ActivatedRoute } from '@angular/router';
+Se pasa por el constructor
+Y Luego se recupera la ruta de la URl por medio de un observador
 
+constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.params.subscribe( params =>  {
+      console.log(params['id']);
+    });
+  }
 
+El nombre del campo dentro de params corresponde al nombre del parámetro
+que nosotros incluimos en el archivo de rutas (id)
 
-
-
+Luego se pasa como parámetro a la función correspondiente
 
 
 

@@ -6,6 +6,12 @@ body{
     margin-top: 20px;
 }
 
+.casa {
+  width: auto !important; /*Keep the aspect ratio of the image*/
+  height: 200px !important;
+  margin: 0 auto 1em auto; /*Center the image*/
+}
+
 /* Animaciones */
 
 .animated {
