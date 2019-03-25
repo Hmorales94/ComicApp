@@ -171,24 +171,25 @@ que nosotros incluimos en el archivo de rutas (id)
 Luego se pasa como parámetro a la función correspondiente
 
 
+------------------
 
+Pipes
 
+Los pipes ayudan a transformar la información de manera visual sin modificar la información
+Permiten formatear más rápido
 
+------------------
 
+Buscar
 
+Para tener la referencia con TS de un elemento, se puede hacer con 
+#buscarTexto
 
+Se puede enlazar un evento con (evento)="func()" usando event binding
 
-
-
-
----------------
-
-
-
-
-
-
-
+Por defecto, un form se enviará la presionar enter
+En angular se puede evitar con la línea:
+(keydown.enter)="$event.preventDefault()"
 
 
 

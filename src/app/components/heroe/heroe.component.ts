@@ -12,9 +12,12 @@ export class HeroeComponent {
   heroe: any = {};
 
   constructor(private activatedRoute: ActivatedRoute, private heroesService: HeroesService) {
+  }
+
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe( params =>  {
       // console.log(params['id']);
-      this.heroe = heroesService.getHeroe(params['id']);
+      this.heroe = this.heroesService.getHeroe(params['id']);
     });
   }
 
