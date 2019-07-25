@@ -191,17 +191,9 @@ Por defecto, un form se enviará la presionar enter
 En angular se puede evitar con la línea:
 (keydown.enter)="$event.preventDefault()"
 
+------------------
 
+Parámetros entre componentes
 
-
-
-
-
-
-
-
-
-
-
-
-
+El decorador Input permite recibir parámetros desde un hijo a través del padre
+El decorador Output permite recibir parámetros desde el padre a través de un hijo
